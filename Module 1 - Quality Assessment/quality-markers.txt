@@ -1,0 +1,50 @@
+Metrics
+=======
+
+1. Accuracy
+2. Completeness
+3. Consistency
+4. Currency/Timeliness
+5. Relevancy
+6. Validity
+7. Uniqueness
+8. Uniformity
+
+TRANSACTIONS DATA
+=================
+
+1. No associated meta data or data description. For instance, no info about the units of prices or description of what each column means etc. - Relevancy issues
+2. 555 rows with at least one missing value - 3% 
+3. Majority of missing values are regarding the brand and details like size , class, std cost etc. and also on whether the order was online or not
+4. No ids duplicated. The remaining columns are allowed to have duplpicate values - so no problem. But each row is unique because of the id.
+5. All columns appear to contain valid data
+6. From the min and max dates we can conclude the the values are 3 years old - not up to date
+7. Only one customer id(5034) which does not appear in customer demographic data and may be invalid as there are only 4000 customer records
+8. 2 customer id's 753 and 3970 represent customers that are deceased, but still have transaction - not very significant - still consistency issues
+9. Accuracy can only be verified by the source - how the data was collected is not something we are aware of
+10. There are no details regarding the units of costs - can assume australian dollars based off of addresss
+
+
+CUSTOMER DEMOGRAPHIC DATA
+=========================
+
+1. Almost 14% of rows have at least one missing value. 
+2. Column "default" has gibberish - maybe encoded differently?
+3. No meta data to explain variables
+4. No customer ids are missing - good, Last names, job titles and categories are predominantly missing which is not good since it hinders customer segmentation and understanding purchase preferences of each demographic
+5. All cid's are unique. No other columns need to be necessarily unique
+6. Cid, date are in proper format. Gender has entries labelled "U" whose meaning is unclear, but presumably unknown/not wished to say. All other columns contain valid factors/parameters.
+7. At the time of collecting data only 2 customers were deceased so pretty  up to date
+8. One DOB is 1843 - which is impssible. This is inaccurate. Further there appear to be many entries having DOBs in the years 2002,2001 etc having rather descriptive job titles - but these people are likely to be only 15-16 during the time of transactions(all are in 2017) which seems implausible. This brings into question the accuracy of data provided. Further, many of these people also appear to own homes and cars - again dubious. Coupled with so many NA values thsi will significantly impact analysis
+9. There seem to be inconsistencies in labelling data. For instance Gender is F/M and Female/Male. These need to be changed into uniform category labels.
+
+CUSTOMER ADDRESS DATA
+=====================
+
+1. Same address name in same state with 2 different postcodes -"3 Talisman Place"
+It is owned by different customers as well
+2. VIC abd Victoria are the same, so are NSW and New South Wales. Again, follow uniform categorical encoding.
+3. Maximum customer id in customer address data is 4003 - this is not even present in the demographic data. Cid 4001,4002 and 4003 in address data are not present in demographic.
+
+
+ 
